@@ -47,6 +47,13 @@ function textColor(){
 //         })  
 //     })
 
+// fetch('http://jsonplaceholder.typicode.com/comments/14').then(function(response) {
+//   response.json().then(function(comments){
+//       let postid = comments.postId;
+//   });
+  
+// }).catch(err => console.error(err));
+
 
 async function getUserInfo() {
     try {
@@ -69,11 +76,6 @@ getUserInfo();
     
 
 
-fetch('http://jsonplaceholder.typicode.com/comments/14').then(function(response) {
-  response.json().then(function(comments){
-      let postid = comments.postId;
-  });
-  
-}).catch(err => console.error(err));
+
 
 
