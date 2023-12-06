@@ -28,17 +28,17 @@ function textColor(){
 
 fetch('https://jsonplaceholder.typicode.com/comments/14')
     .then(response => response.json())
-    .then(function(comments){
+    .then(comments => {
         let postid = comments.postId;
         return fetch(`https://jsonplaceholder.typicode.com/posts/${postid}`)
     })
     .then(response => response.json())
-    .then(function(posts){
+    .then(posts => {
         let userid = posts.userId
         return fetch(`https://jsonplaceholder.typicode.com/users/${userid}`) 
     }) 
     .then(response => response.json())
-    .then(function(users){
+    .then(users => {
         console.log(users.name)
     })
     .catch(error => {
@@ -49,24 +49,24 @@ fetch('https://jsonplaceholder.typicode.com/comments/14')
 
 
 
-// async function getUserInfo() {
-//     try {
-//         const commentsResponse = await fetch('https://jsonplaceholder.typicode.com/comments/14');
-//         const comments = await commentsResponse.json();
+async function getUserInfo() {
+    try {
+        const commentsResponse = await fetch('https://jsonplaceholder.typicode.com/comments/14');
+        const comments = await commentsResponse.json();
 
-//         const postsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${comments.postId}`);
-//         const posts = await postsResponse.json();
+        const postsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${comments.postId}`);
+        const posts = await postsResponse.json();
 
-//         const usersResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${posts.userId}`);
-//         const users = await usersResponse.json();
+        const usersResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${posts.userId}`);
+        const users = await usersResponse.json();
 
-//         console.log(users.name);
-//     } catch (error) {
-//         console.error('Error:', error);
-//     }
-// }
+        console.log(users.name);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
-// getUserInfo();
+getUserInfo();
     
 
 
